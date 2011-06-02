@@ -1,4 +1,4 @@
-package jp.sourceforge.stigmata.birthmarks;
+package jp.sourceforge.stigmata.cflib;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,8 +1,11 @@
-package jp.sourceforge.stigmata.birthmarks;
+package jp.sourceforge.stigmata.cflib;
 
 /*
  * $Id$
  */
+
+import jp.sourceforge.stigmata.cflib.Opcode;
+import jp.sourceforge.stigmata.cflib.OpcodeManager;
 
 import org.junit.Assert;
 import org.junit.Test;

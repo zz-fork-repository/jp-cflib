@@ -1,7 +1,9 @@
-package jp.sourceforge.stigmata.birthmarks;
+package jp.sourceforge.stigmata.cflib;
 
 import java.util.Iterator;
 
+import jp.sourceforge.stigmata.cflib.ControlFlowGraph;
+import jp.sourceforge.stigmata.cflib.ControlFlowGraphExtractVisitor;
 import junit.framework.Assert;
 
 import org.junit.Before;

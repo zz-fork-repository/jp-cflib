@@ -1,10 +1,12 @@
-package jp.sourceforge.stigmata.birthmarks;
+package jp.sourceforge.stigmata.cflib;
 
 /*
  * $Id$
  */
 
 import java.util.Iterator;
+
+import jp.sourceforge.stigmata.cflib.Opcode;
 
 import org.junit.Assert;
 import org.junit.Before;

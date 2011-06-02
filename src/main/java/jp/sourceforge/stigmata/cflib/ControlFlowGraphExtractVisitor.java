@@ -1,4 +1,4 @@
-package jp.sourceforge.stigmata.birthmarks;
+package jp.sourceforge.stigmata.cflib;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -6,6 +6,7 @@ import java.util.Map;
 
 import jp.sourceforge.stigmata.Birthmark;
 import jp.sourceforge.stigmata.BirthmarkContext;
+import jp.sourceforge.stigmata.birthmarks.BirthmarkExtractVisitor;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;

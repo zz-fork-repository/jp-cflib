@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>plugins</artifactId>
-    <groupId>jp.sourceforge.stigmata</groupId>
-    <version>1.0</version>
-  </parent>
-  <groupId>jp.sourceforge.stigmata.plugins</groupId>
+  <groupId>jp.sourceforge.stigmata</groupId>
   <artifactId>cflib</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0-SNAPSHOT</version>
   <name>Control Flow Library</name>
-  <url>http://stigmata.sourceforge.jp/stigmata/plugins/cflib/</url>
+  <url>http://stigmata.sourceforge.jp/stigmata/cflib/</url>
+
+  <distributionManagement>
+    <repository>
+      <id>tamadalab-intra-repo</id>
+      <url>dav:http://diamond.cse.kyoto-su.ac.jp/maven2</url>
+    </repository>
+  </distributionManagement>
 
   <dependencies>
     <dependency>
       <groupId>jp.sourceforge</groupId>
       <artifactId>stigmata</artifactId>
-      <version>2.0.0-SNAPSHOT</version>
+      <version>3.0.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -54,5 +56,18 @@
         </executions>
       </plugin>
     </plugins>
+
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh</artifactId>
+        <version>1.0-beta-6</version>
+      </extension>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav-jackrabbit</artifactId>
+        <version>1.0-beta-7</version>
+      </extension>
+    </extensions>
   </build>
 </project>
