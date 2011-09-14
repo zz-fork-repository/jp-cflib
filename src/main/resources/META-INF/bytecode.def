@@ -165,8 +165,8 @@
 164,if_icmple,2,-2,BRANCH
 165,if_acmpeq,2,-2,BRANCH
 166,if_acmpne,2,-2,BRANCH
-167,goto,2,-1,BRANCH
-168,jsr,2,-1,BRANCH
+167,goto,2,0,BRANCH
+168,jsr,2,1,BRANCH
 169,ret,1,0,NORMAL
 170,tableswitch,-1,-1,BRANCH
 171,lookupswitch,-1,-1,BRANCH
@@ -198,8 +198,8 @@
 197,multianewarray,3,-1,NORMAL
 198,ifnull,2,-1,BRANCH
 199,ifnonnull,2,-1,BRANCH
-200,goto_w,4,-1,BRANCH
-201,jsr_w,4,-1,BRANCH
+200,goto_w,4,0,BRANCH
+201,jsr_w,4,1,BRANCH
 202,breakpoint,0
 203,ldc_quick,1
 204,__unused,0
