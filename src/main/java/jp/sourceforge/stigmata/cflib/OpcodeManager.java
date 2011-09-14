@@ -100,7 +100,9 @@ public class OpcodeManager{
         MethodInsnNode methodNode = (MethodInsnNode)node;
         Type[] types = Type.getArgumentTypes(methodNode.desc);
         int argumentSize = 0;
-        for(Type type: types) argumentSize = type.getSize();
+        for(Type type: types){
+            argumentSize += type.getSize();
+        }
         int size = Type.getReturnType(methodNode.desc).getSize();
         switch(o.getOpcode()){
         case Opcodes.INVOKESTATIC:

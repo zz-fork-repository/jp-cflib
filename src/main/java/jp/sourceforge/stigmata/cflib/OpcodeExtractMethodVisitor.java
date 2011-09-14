@@ -120,7 +120,9 @@ public class OpcodeExtractMethodVisitor extends MethodAdapter{
         Opcode methodOpcode = new Opcode(manager.getOpcode(opcode));
         Type[] types = Type.getArgumentTypes(desc);
         int argumentSize = 0;
-        for(Type type: types) argumentSize = type.getSize();
+        for(Type type: types){
+            argumentSize += type.getSize();
+        }
         int size = Type.getReturnType(desc).getSize();
         switch(opcode){
         case Opcodes.INVOKESTATIC:
