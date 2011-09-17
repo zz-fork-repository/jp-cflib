@@ -91,7 +91,13 @@ public class OpcodeExtractMethodVisitor extends MethodAdapter{
 
     @Override
     public void visitLdcInsn(Object value){
-        opcodes.add(manager.getOpcode(Opcodes.LDC));
+        if(value instanceof Double || value instanceof Long){
+            // 20 is opcode of LDC2_W
+            opcodes.add(manager.getOpcode(20));
+        }
+        else{
+            opcodes.add(manager.getOpcode(Opcodes.LDC));
+        }
         super.visitLdcInsn(value);
     }
 

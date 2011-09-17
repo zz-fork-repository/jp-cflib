@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>jp.sourceforge.stigmata</groupId>
   <artifactId>cflib</artifactId>
-  <version>1.1.2-SNAPSHOT</version>
+  <version>1.1.3</version>
   <name>Control Flow Library</name>
   <url>http://stigmata.sourceforge.jp/stigmata/cflib/</url>
   <inceptionYear>2009</inceptionYear>
