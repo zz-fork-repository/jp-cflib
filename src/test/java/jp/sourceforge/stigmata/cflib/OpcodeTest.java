@@ -23,7 +23,7 @@ public class OpcodeTest{
 
     @Before
     public void setup(){
-        opcode = new Opcode(26, "iload_0", 0, 1, Opcode.Category.NORMAL);
+        opcode = new Opcode(26, "iload_0", 0, 1, Opcode.Category.LOAD);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class OpcodeTest{
         Assert.assertEquals("iload_0", opcode.getName());
         Assert.assertEquals(0, opcode.getArgumentCount());
         Assert.assertEquals(1, opcode.getAct());
-        Assert.assertEquals(Opcode.Category.NORMAL, opcode.getCategory());
+        Assert.assertEquals(Opcode.Category.LOAD, opcode.getCategory());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class OpcodeTest{
         Assert.assertEquals("iload_0", o.getName());
         Assert.assertEquals(0, o.getArgumentCount());
         Assert.assertEquals(1, o.getAct());
-        Assert.assertEquals(Opcode.Category.NORMAL, o.getCategory());
+        Assert.assertEquals(Opcode.Category.LOAD, o.getCategory());
     }
 
     @Test(expected=IllegalStateException.class)

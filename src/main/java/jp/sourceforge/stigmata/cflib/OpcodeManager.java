@@ -51,6 +51,7 @@ public class OpcodeManager{
                 }
             }
         } catch(Exception e){
+            e.printStackTrace();
             throw new InternalError(e.getMessage());
         }
     }
@@ -82,10 +83,16 @@ public class OpcodeManager{
             case INVOKE:
                 opcode = constructMethodOpcode(opcode, node);
                 break;
-            case OBJECT:
+            case FIELD:
                 opcode = constructObjectOpcode(opcode, node);
                 break;
-            case NORMAL:   // Not needs conversion.
+             // Not needs conversion.
+            case CONSTANT: case ARRAY:  case ADD:      case LOAD:
+            case SUBTRACT: case DIVIDE: case MULTIPLY: case SHIFT_RIGHT:
+            case AND:      case OR:     case XOR:      case SHIFT_LEFT:
+            case NEGATE:   case REMAIN: case STORE:    case USHIFT_RIGHT:
+            case NEW:      case CAST:   case COMPARE:  case RETURN:
+            case OTHERS:   case THROW:  case STACK:  
             case TARGETER: // Already convert above.
             default:
                 break;

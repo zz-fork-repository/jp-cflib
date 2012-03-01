@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import jp.sourceforge.stigmata.utils.ArrayIterator;
 
 import org.objectweb.asm.Label;
 import org.objectweb.asm.Opcodes;
@@ -21,11 +22,17 @@ import org.objectweb.asm.tree.TryCatchBlockNode;
  * 
  * @author tamada
  */
-public class ControlFlowGraph {
+public class ControlFlowGraph implements Iterable<BasicBlock>{
     private BasicBlock[] blocks;
     private boolean includeException;
     private MethodNode method;
     private String name;
+
+    public ControlFlowGraph(String name, BasicBlock[] initBlocks){
+        this.name = name;
+        blocks = new BasicBlock[initBlocks.length];
+        System.arraycopy(initBlocks, 0, blocks, 0, initBlocks.length);
+    }
 
     public ControlFlowGraph(String name, MethodNode node){
         this(name, node, false);
@@ -109,6 +116,10 @@ public class ControlFlowGraph {
             }
         }
         return jumpTarget;
+    }
+
+    public Iterator<BasicBlock> iterator(){
+        return new ArrayIterator<BasicBlock>(blocks);
     }
 
     public int getBasicBlockSize(){

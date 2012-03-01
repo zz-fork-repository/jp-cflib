@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.objectweb.asm.Label;
-import org.objectweb.asm.MethodAdapter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
@@ -13,7 +12,7 @@ import org.objectweb.asm.Type;
  *
  * @author Haruaki TAMADA
  */
-public class OpcodeExtractMethodVisitor extends MethodAdapter{
+public class OpcodeExtractMethodVisitor extends MethodVisitor{
     private List<Opcode> opcodes;
     private OpcodeManager manager = OpcodeManager.getInstance();
     private List<OpcodeExtractListener> listeners = new ArrayList<OpcodeExtractListener>();
@@ -23,7 +22,7 @@ public class OpcodeExtractMethodVisitor extends MethodAdapter{
     }
 
     public OpcodeExtractMethodVisitor(MethodVisitor visitor, List<Opcode> opcodes){
-        super(visitor);
+        super(Opcodes.ASM4, visitor);
         this.opcodes = opcodes;
     }
 
@@ -91,12 +90,18 @@ public class OpcodeExtractMethodVisitor extends MethodAdapter{
 
     @Override
     public void visitLdcInsn(Object value){
-        opcodes.add(manager.getOpcode(Opcodes.LDC));
+        if(value instanceof Double || value instanceof Long){
+            // 20 is opcode of LDC2_W
+            opcodes.add(manager.getOpcode(20));
+        }
+        else{
+            opcodes.add(manager.getOpcode(Opcodes.LDC));
+        }
         super.visitLdcInsn(value);
     }
 
     @Override
-    public void visitTableSwitchInsn(int min, int max, Label defaultLabel, Label[] labels){
+    public void visitTableSwitchInsn(int min, int max, Label defaultLabel, Label... labels){
         Opcode tableSwitch = new Opcode(manager.getOpcode(Opcodes.TABLESWITCH));
         tableSwitch.setLabels(labels);
         tableSwitch.addLabel(defaultLabel);

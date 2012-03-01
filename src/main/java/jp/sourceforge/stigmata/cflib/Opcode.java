@@ -16,7 +16,9 @@ public class Opcode implements Serializable, Iterable<Label>{
     private static final long serialVersionUID = -2349834745416345564L;
 
     public static enum Category{
-        NORMAL, BRANCH, OBJECT, INVOKE, TARGETER,
+        CONSTANT, LOAD, STORE, ARRAY, STACK, ADD, SUBTRACT, MULTIPLY, DIVIDE, REMAIN,
+        NEGATE, SHIFT_LEFT, SHIFT_RIGHT, USHIFT_RIGHT, AND, OR, XOR, CAST, COMPARE,
+        BRANCH, RETURN, FIELD, INVOKE, NEW, THROW, TARGETER, OTHERS,
     };
     private int opcode;
     private String name;
@@ -98,7 +100,7 @@ public class Opcode implements Serializable, Iterable<Label>{
     }
 
     public void setAct(int act){
-        if(category != Category.OBJECT && category != Category.INVOKE){
+        if(category != Category.FIELD && category != Category.INVOKE){
             throw new IllegalStateException("setAct can be called only object and invoke category.");
         }
         this.act = act;

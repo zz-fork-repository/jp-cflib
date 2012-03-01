@@ -19,9 +19,15 @@ import org.objectweb.asm.tree.MethodNode;
  */
 public class ControlFlowGraphExtractVisitor extends BirthmarkExtractVisitor{
     private Map<String, MethodNode> opcodesMap = new LinkedHashMap<String, MethodNode>();
+    private boolean includeExceptionFlows = false;
 
     public ControlFlowGraphExtractVisitor(ClassVisitor visitor, Birthmark birthmark, BirthmarkContext context){
         super(visitor, birthmark, context);
+    }
+
+    public ControlFlowGraphExtractVisitor(ClassVisitor visitor, Birthmark birthmark, BirthmarkContext context, boolean includeExceptionFlows){
+        super(visitor, birthmark, context);
+        this.includeExceptionFlows = includeExceptionFlows;
     }
 
     /**
@@ -50,6 +56,6 @@ public class ControlFlowGraphExtractVisitor extends BirthmarkExtractVisitor{
     }
 
     private ControlFlowGraph buildControlFlow(String methodName, MethodNode node){
-        return new ControlFlowGraph(methodName, node);
+        return new ControlFlowGraph(methodName, node, includeExceptionFlows);
     }
 }
