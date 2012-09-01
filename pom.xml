@@ -21,6 +21,14 @@
   <url>http://stigmata.sourceforge.jp/stigmata/cflib/</url>
   <inceptionYear>2009</inceptionYear>
 
+  <repositories>
+    <repository>
+      <id>stigmata.sourceforge.jp</id>
+      <name>Stigmata Maven2 Repository in sourceforge.jp</name>
+      <url>http://stigmata.sourceforge.jp/maven2</url>
+    </repository>
+  </repositories>
+
   <scm>
     <connection>scm:git:git://git.sourceforge.jp/gitroot/stigmata/cflib.git</connection>
     <developerConnection>scm:git:ssh://tama3@git.sourceforge.jp:/gitroot/stigmata/cflib.git</developerConnection>
