@@ -46,7 +46,7 @@
     <dependency>
       <groupId>jp.sourceforge.stigmata</groupId>
       <artifactId>stigmata-core</artifactId>
-      <version>4.0-SNAPSHOT</version>
+      <version>4.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
